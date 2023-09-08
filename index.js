@@ -1,4 +1,26 @@
 const inquirer = require('inquirer');
+const mysql = require('mysql');
+const db = require('./db');
+
+
+function viewDepartments() {
+    // Query the database to retrieve department data
+    const query = 'SELECT * FROM departments';
+
+    db.query(query, (err, departments) => { // Use the 'db' connection object
+        if (err) {
+            console.error('Error fetching departments:', err);
+            return;
+        }
+
+        // Display the department data in a formatted table
+        console.log('\nList of Departments:');
+        console.table(departments);
+
+        // Return to the main menu
+        mainMenu();
+    });
+}
 
 function mainMenu() {
     inquirer
@@ -23,7 +45,7 @@ function mainMenu() {
             // Based on the user's choice (answer.choice), call the corresponding function
             switch (answer.choice) {
                 case 'View all departments':
-                    // Implement the logic to view all departments
+                    viewDepartments(); // Call the viewDepartments function
                     break;
                 case 'View all roles':
                     // Implement the logic to view all roles
