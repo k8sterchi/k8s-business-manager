@@ -1,7 +1,7 @@
 const inquirer = require('inquirer');
 const mysql = require('mysql');
 const db = require('./db');
-
+const connection = require('./connection');
 
 function viewDepartments() {
     // Query the database to retrieve department data
