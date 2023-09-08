@@ -1,6 +1,6 @@
 const mysql = require('mysql');
 
-// Create a connection pool to manage database connections
+// i am not sure about this... ???????
 const connection = mysql.createPool({
   host: 'localhost',          
   user: 'your_username',      
